@@ -1,37 +1,61 @@
-## Welcome to GitHub Pages
+## Welcome to apiPot project
+![logo.apipot.com](https://logo.apipot.com/1/default.png)
 
-You can use the [editor on GitHub](https://github.com/apipot/www/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
++ [www.apipot.com](https://www.apipot.com)
++ [logo.apipot.com](https://logo.apipot.com)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+## What it's apiPot?
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Platforma prezentacji mediów z róznych platform
 
-```markdown
-Syntax highlighted code block
+## How it work's?
 
-# Header 1
-## Header 2
-### Header 3
+### stworzenie projektu, konfiguracja
+podaj 2 parametry:
++ url repozytorium
++ nazwa projektu (domyslna pochodzi z formatu: [repozytorium].[organisation].apipot.com) 
 
-- Bulleted
-- List
+### zarządzanie projektami
++ dodawanie
++ edycja grupowa wszystkich mediów jednocześnie na jednej stronie
 
-1. Numbered
-2. List
+### routing
+jakie technologie pozwolą szybko tworzyć routing dla subdomen?
 
-**Bold** and _Italic_ and `Code` text
+### deployment
+Projekt jest wystawiany jako statyczny projekt
+deployment w wersji darmowej nie obejmuje własnego środowiska.
+Dopiero w wersji płatnej jest własny numer IP serwera.
 
-[Link](url) and ![Image](src)
-```
+## jLoads
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+jLoads to rozwiązanie po stronie frontendu, do ładowania plików poprzez przeglądarkę,
+to proste rozwiązanie pozwalające na szybkie stworzenie strony, bez narzędzi w sposób modułowy.
+Co daje takie rozwiązanie?
+Tworzenie szybko czegoś w oparciu o gotowce, np: potrzebujesz stworzyć stronę z logowaniem, ankietą, ofertą, itd wchodzisz na darmową i otwarta bibliotekę mediów i po prostu dodajesz do swojego, ewnetualnie zmieniasz, to co jest potrzebne, dodajesz konfigiurację tylko swoją.
+W późniejszym etapie, to będzie gotowa do pobrania aplikacja na systemy mobilne jak android.
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/apipot/www/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+O co chodzi w tym rozwiązaniu?
+O streamowanie danych i aplikacji, coś co należy do przyszłosci w IoT i tutaj widzę siebie.
+#IoT
+#Streamowanie Aplikacji
+#Budowanie Interfejsów
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+Obecnie jestem w trakcie budowanie takiego ekosystemu rozwiązań dla wielu społeczności:
++ programistów
++ providerów usług
++ artystów (grafików, muzyków, itd)
+
+jedno rozwiązanie to za mało, żeby móc coś sensownego zaproponować.
+
+Już wcześniej na forum się zapowiadałem, dlatego chętnie pokażę efekty tych rozwiązań i same rozwiązania, w skład których wchodzą:
++ oprogramowanie do budowania modularnych web-aplikacji, konfiguruje się tylko URL-e z dostępem do modułów w html, javascript, css, itd
++ oprogramowanie do deploymentu, ładuje Twoją aplikację bezpośrednio na VPS, podpinasz domenę przez rekordy: CNAME, A
++ oprogramowanie do zarządzania darmowymi bibliotekami mediów,
++ .. być może w przyszłości jescze marketplace z płatnymi autorskimi skryptami, modułami, mediami, itp, które będą po prostu opłacane w modelu subskrypcji miesięcznej/rocznej.
+
+
