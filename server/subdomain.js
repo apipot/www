@@ -24,13 +24,13 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
         res.end(
             'group: ' +
             req.params.group +
-            '\n' +
+            ';\n' +
             'project: ' +
             req.params.project +
-            '\n' +
+            ';\n' +
             'path: ' +
             req.originalUrl +
-            '\n' +
+            ';\n' +
             'Query string: ' +
             JSON.stringify(req.query)
         )
@@ -41,13 +41,13 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
         res.end(
             'First Subdomain: ' +
             req.params.firstSubdomain +
-            '\n' +
+            ';\n' +
             'Original Url: ' +
             req.originalUrl +
-            '\n' +
+            ';\n' +
             'New Url: ' +
             req.url +
-            '\n' +
+            ';\n' +
             'Query string: ' +
             JSON.stringify(req.query)
         )
@@ -58,9 +58,9 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
     app.listen(port, () => console.log(application + ' is listening on: ' + url));
 
     // Info
-    console.log('Example started on port 80')
+    console.log('Example started on port '+port)
     console.log('============================')
     console.log('To test subdomain routing, visit these urls in your browser:')
-    console.log('http://test.apipot.com:80/')
-    console.log('http://another.test.apipot.com:80/')
+    console.log("http://test.apipot.com:{port}/")
+    console.log("http://another.test.apipot.com:$port/")
 }
