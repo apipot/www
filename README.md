@@ -16,6 +16,10 @@
     
     sh start.sh
     
+    
+https://apipot.com
+https://foo.apipot.com
+    
 ## What it's apiPot?
 
 Platforma prezentacji mediów z róznych platform
