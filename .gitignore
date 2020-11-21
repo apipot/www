@@ -1,5 +1,8 @@
 .idea
 .idea/
+group/
+data/out/
+data/tmp/
 # Logs
 logs
 *.log
