@@ -13,27 +13,30 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
 
     app.use(wildcardSubdomains())
 
+    /* www is not using
     app.get('/', function (req, res) {
         res.send('Visit <a href="http://foo.apipot.com:80">http://foo.apipot.com:80</a> (points back to localhost)')
     })
+*/
 
-    app.get('/_sub/bar/foo', function (req, res) {
+    // user/project/path
+    app.get('/_sub/:user/:project/*', function (req, res) {
         res.end(
-            'Subdomains: ' +
-            JSON.stringify(req.subdomains) +
+            'user: ' +
+            req.params.user +
             '\n' +
-            'Original Url: ' +
+            'user: ' +
+            req.params.project +
+            '\n' +
+            'path: ' +
             req.originalUrl +
-            '\n' +
-            'New Url: ' +
-            req.url +
             '\n' +
             'Query string: ' +
             JSON.stringify(req.query)
         )
     })
 
-// Generous matching
+    // Generous matching
     app.get('/_sub/:firstSubdomain/*', function (req, res) {
         res.end(
             'First Subdomain: ' +
