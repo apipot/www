@@ -2,8 +2,12 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
 
     const express = require('express');
 
-    const app = express();
     port = process.env.PORT || port;
+
+
+    const app = express();
+    app.use(express.static(public_src));
+
 
     // NEW - Add CORS headers - see https://enable-cors.org/server_expressjs.html
     app.use(function (req, res, next) {
@@ -25,7 +29,6 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
         res.send('An alligator approaches!');
     });
 
-    app.use(express.static(public_src));
 
     // API endpoint
     app.get("/api/ping", (req, res) => {
