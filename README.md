@@ -7,7 +7,8 @@
 
 ## install on VPS
 
-    git clone https://github.com/memogra/www.git
+    git clone https://github.com/apipot/www.git
+    cd www
     
     sh install.sh
     

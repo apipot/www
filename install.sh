@@ -10,6 +10,9 @@ echo "I will install git"
 apt-get install git
 git --version
 
+echo "I will instal nodejs or update"
+npm install -g npm
+
 echo "I will install Node environment to start project"
 apt-get install nodejs npm -y
 npm --version
