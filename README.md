@@ -1,10 +1,20 @@
 ## Welcome to apiPot project
-![logo.apipot.com](https://logo.apipot.com/1/default.png)
+![logo.apipot.com](https://logo.apipot.com/4/default.png)
 
 + [www.apipot.com](https://www.apipot.com)
 + [logo.apipot.com](https://logo.apipot.com)
 
 
+## install on VPS
+
+    git clone https://github.com/memogra/www.git
+    
+    sh install.sh
+    
+    sh status.sh
+    
+    sh start.sh
+    
 ## What it's apiPot?
 
 Platforma prezentacji mediów z róznych platform
