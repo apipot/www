@@ -1,0 +1,2 @@
+https://github.com/apipot-input/checkbox.git
+https://github.com/apipot-input/radio.git

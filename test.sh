@@ -1,5 +1,6 @@
 node server.js
 ## urls requests test
-# http://check.form.apipot.com/
-# http://check.form.apipot.com/index.html
-# http://check.form.apipot.com/index.html?test=1
+# http://input.apipot.com/
+# http://radio.input.apipot.com/
+# http://radio.input.apipot.com/index.html
+# http://radio.input.apipot.com/index.html?test=1

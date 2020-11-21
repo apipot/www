@@ -15,10 +15,19 @@
     sh status.sh
     
     sh start.sh
+
+## Data processing
+Data from folder: "data/in" are used to generate the content in folder: "repo/"     
     
-    
+    sh data.sh
+
+## Tests    
+
 https://apipot.com
 https://foo.apipot.com
+    
+    sh test.sh
+    
     
 ## What it's apiPot?
 
