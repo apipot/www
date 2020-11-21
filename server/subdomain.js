@@ -20,12 +20,12 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
 */
 
     // user/project/path
-    app.get('/_sub/:user/:project/*', function (req, res) {
+    app.get('/_sub/:group/:project/*', function (req, res) {
         res.end(
-            'user: ' +
-            req.params.user +
+            'group: ' +
+            req.params.group +
             '\n' +
-            'user: ' +
+            'project: ' +
             req.params.project +
             '\n' +
             'path: ' +
