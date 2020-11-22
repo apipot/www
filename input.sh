@@ -13,7 +13,7 @@ for INPUT in $INPUT_LIST; do
   INPUT=$f;
   echo $INPUT;
 
-  if [ ! -f "$OUTPUT" ]; then
+  if [ -f "$INPUT" ]; then
 
       while IFS= read -r line || [[ -n "$line" ]]; do
             #echo "-- $line --";
