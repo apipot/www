@@ -25,7 +25,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
             })();
         });
     };
-
+    // https://stackoverflow.com/questions/5827612/node-js-fs-readdir-recursive-directory-search
 
     // Library
     const express = require('express')
@@ -56,6 +56,13 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
         //public_src = req.params.group + "/" + req.params.project;
         // app.use(express.static(public_src));
         res.setHeader('Content-Type', 'application/json');
+
+        res.end(JSON.stringify({
+            group: req.params.group,
+            project: req.params.project,
+            files: process.env.HOME,
+        }))
+        /*
         walk(process.env.HOME, function(err, results) {
             if (err) throw err;
             // console.log(results);
@@ -65,7 +72,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
                 files: results,
             }))
         });
-
+*/
         /*
         res.end(
             'group: ' +
