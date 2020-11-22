@@ -29,21 +29,21 @@ for INPUT in $INPUT_LIST; do
      #ls `data/in/${FILENAME}.txt` | while read LINE; do echo "--${LINE}--"; done;
 
     # check if is existing
-    if [ -f "$INPUT" ]; then
-
+    #if [ -f "$INPUT" ]; then
         while IFS= read -r line || [[ -n "$line" ]]; do \
           #echo "-- $line --";
           # Read the filename without extension by using ‘basname’ and `sed` command
           PROJECT="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
           echo $PROJECT; \
-          #PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
+          PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
+          echo $PATH; \
           #mkdir -p "${REPO}/${ENV}/${FILENAME}"; \
           #git clone $line $PATH; \
         done < "$INPUT";
 
     #else
     #  echo "FILE: ${INPUT} NOT EXIST!"
-    fi;
+    #fi;
 
      #mv data/in/${FILENAME}.txt data/out/${FILENAME}.txt;
   fi;
