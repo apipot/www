@@ -1,2 +1,4 @@
 http://grid.view.apipot.com
 http://user.auth.apipot.com
+http://logo.apipot.com
+http://www.apipot.com

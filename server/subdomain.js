@@ -160,6 +160,9 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
 
     })
 
+    // SSL
+    app.use(express.static(__dirname, { dotfiles: 'allow' } ));
+
     // Start App
     app.listen(port, () => console.log(application + ' is listening on: ' + url));
 
