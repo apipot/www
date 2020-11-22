@@ -17,18 +17,21 @@ for f in $INPUT_LIST; do
   FILENAME="$(basename ${f%%.*})";
   echo $FILENAME;
 
+  # Set the filename with path
+  INPUT="data/in/${FILENAME}.txt";
+  echo $INPUT;
+
   OUTPUT="data/out/${FILENAME}.txt";
   echo $OUTPUT;
 
-  if [ ! -f $OUTPUT ]; then
+  if [ ! -f "$OUTPUT" ]; then
      echo ":: processing: ${FILENAME}";
      #cat `data/in/${FILENAME}.txt` | while read LINE; do echo "--${LINE}--"; done
      #same loop over files, but using a pipe (reading from standard input), and a while-loop
      #ls `data/in/${FILENAME}.txt` | while read LINE; do echo "--${LINE}--"; done;
-    # Set the filename with path
-    INPUT="data/in/${FILENAME}.txt";
+
     # check if is existing
-    if [ -f $INPUT ]; then
+    if [ -f "$INPUT" ]; then
       while IFS= read -r line || [[ -n "$line" ]]; do \
         #echo "-- $line --";
         # Read the filename without extension by using ‘basname’ and `sed` command
