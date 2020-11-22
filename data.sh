@@ -38,6 +38,8 @@ for f in $INPUT_LIST; do
         PROJECT="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
         echo $PROJECT; \
         PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
+        mkdir "${REPO}/${ENV}"; \
+        mkdir "${REPO}/${ENV}/${FILENAME}"; \
         git clone $line $PATH; \
       done < "$INPUT";
     #else
