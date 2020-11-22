@@ -10,11 +10,14 @@ ENV="static"
 # loop
 # create folder for groups and repositories by file list in data folder
 INPUT_LIST="data/in/*.txt";
-for f in data/in/*.txt; do
+for f in $INPUT_LIST; do
   FILENAME=`basename ${f%%.*}`;
-  OUTPUT="data/out/${FILENAME}.txt";
   echo $FILENAME;
-  if [ ! -f $$OUTPUT ]; then
+
+  OUTPUT="data/out/${FILENAME}.txt";
+  echo OUTPUT;
+
+  if [ ! -f $OUTPUT ]; then
      echo ":: processing: ${FILENAME}";
      #cat `data/in/${FILENAME}.txt` | while read LINE; do echo "--${LINE}--"; done
      #same loop over files, but using a pipe (reading from standard input), and a while-loop
