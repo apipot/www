@@ -39,9 +39,9 @@ for INPUT in $INPUT_LIST; do
           PROJECT="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
           echo $PROJECT; \
           mkdir -p "${REPO}/${ENV}/${FILENAME}"; \
-          PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
-          echo $PATH; \
-          git clone $line $PATH; \
+          #PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
+          #echo $PATH; \
+          git clone $line "${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
         done < "$INPUT"; \
 
     #else
