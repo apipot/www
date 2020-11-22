@@ -10,17 +10,14 @@ ENV="static"
 # loop
 # create folder for groups and repositories by file list in data folder
 INPUT_LIST="data/in/*.txt";
-for f in $INPUT_LIST; do
-  FILE=${f%%.*};
+for INPUT in $INPUT_LIST; do
+  FILE=${INPUT%%.*};
   echo $FILE;
 
   FILENAME="$(basename "$FILE")";
   echo $FILENAME;
 
-  # Set the filename with path
-  INPUT="data/in/${FILENAME}.txt";
-  echo $INPUT;
-
+  # Set the OUTPUT filename with path
   OUTPUT="data/out/${FILENAME}.txt";
   echo $OUTPUT;
 
@@ -37,9 +34,9 @@ for f in $INPUT_LIST; do
         # Read the filename without extension by using ‘basname’ and `sed` command
         PROJECT="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
         echo $PROJECT; \
-        PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
-        mkdir -p "${REPO}/${ENV}/${FILENAME}"; \
-        git clone $line $PATH; \
+        #PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
+        #mkdir -p "${REPO}/${ENV}/${FILENAME}"; \
+        #git clone $line $PATH; \
       done < "$INPUT";
     #else
     #  echo "FILE: ${INPUT} NOT EXIST!"
