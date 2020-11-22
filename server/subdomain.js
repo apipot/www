@@ -28,12 +28,12 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
                         // filter FILENAME = .git
                         if (file.indexOf(FILENAME) !== -1) next();
 
-                        walk(file, function (err, res) {
+                        walk(file_name, function (err, res) {
                             results = results.concat(res);
                             next();
                         });
                     } else {
-                        if (file.indexOf(FILENAME) === -1) next();
+                        if (file_name.indexOf(FILENAME) !== -1) next();
 
                         results.push(file_name);
                         // results.push(file);
