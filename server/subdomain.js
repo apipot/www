@@ -2,18 +2,18 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
 
     var fs = require('fs');
     var path = require('path');
-    var walk = function(dir, done) {
+    var walk = function (dir, done) {
         var results = [];
-        fs.readdir(dir, function(err, list) {
+        fs.readdir(dir, function (err, list) {
             if (err) return done(err);
             var i = 0;
             (function next() {
                 var file = list[i++];
                 if (!file) return done(null, results);
                 file = path.resolve(dir, file);
-                fs.stat(file, function(err, stat) {
+                fs.stat(file, function (err, stat) {
                     if (stat && stat.isDirectory()) {
-                        walk(file, function(err, res) {
+                        walk(file, function (err, res) {
                             results = results.concat(res);
                             next();
                         });
@@ -53,26 +53,26 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
 
     // user/project/path
     app.get('/_sub/:group/:project/*', function (req, res) {
-        //public_src = req.params.group + "/" + req.params.project;
+        public_src = process.env.HOME + "/" + "repo/static/" + req.params.group + "/" + req.params.project;
         // app.use(express.static(public_src));
         res.setHeader('Content-Type', 'application/json');
 
-        res.end(JSON.stringify({
-            group: req.params.group,
-            project: req.params.project,
-            files: process.env.HOME,
-        }))
-        /*
-        walk(process.env.HOME, function(err, results) {
+        // res.end(JSON.stringify({
+        //     group: req.params.group,
+        //     project: req.params.project,
+        //     path: public_src,
+        //     files: process.env.HOME,
+        // }))
+        walk(process.env.HOME, function (err, results) {
             if (err) throw err;
             // console.log(results);
             res.end(JSON.stringify({
                 group: req.params.group,
                 project: req.params.project,
+                path: public_src,
                 files: results,
             }))
         });
-*/
         /*
         res.end(
             'group: ' +
