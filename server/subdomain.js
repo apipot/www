@@ -35,8 +35,8 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
                     } else {
                         if (file_name.indexOf(FILENAME) === -1) {
                             results.push(file_name);
+                            // results.push(file);
                         }
-                        // results.push(file);
                         next();
                     }
                 });
