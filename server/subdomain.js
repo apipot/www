@@ -11,6 +11,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
             var i = 0;
             (function next() {
                 var file = list[i++];
+                var file_name = list[i++];
                 if (!file) return done(null, results);
 
                 // FILENAME = .git
@@ -23,7 +24,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
 
                 fs.stat(file, function (err, stat) {
                     if (stat && stat.isDirectory()) {
-                        // FILENAME = .git
+                        // filter FILENAME = .git
                         if (file.indexOf(FILENAME) !== -1) next();
 
                         walk(file, function (err, res) {
@@ -31,7 +32,8 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
                             next();
                         });
                     } else {
-                        results.push(file);
+                        results.push(file_name);
+                        // results.push(file);
                         next();
                     }
                 });
@@ -79,11 +81,14 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
         walk(public_src, function (err, results) {
             if (err) throw err;
             // console.log(results);
+            var url = "http://" + req.params.project + "." + req.params.group + ".apipot.com/"
             res.end(JSON.stringify({
                 group: req.params.group,
                 project: req.params.project,
+                url: url,
                 path: public_src,
                 files: results,
+
             }))
         });
         /*
