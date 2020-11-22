@@ -31,7 +31,7 @@ for f in $INPUT_LIST; do
      #ls `data/in/${FILENAME}.txt` | while read LINE; do echo "--${LINE}--"; done;
 
     # check if is existing
-    if [ -f "$INPUT" ]; then
+    #if [ -f "$INPUT" ]; then
       while IFS= read -r line || [[ -n "$line" ]]; do \
         #echo "-- $line --";
         # Read the filename without extension by using ‘basname’ and `sed` command
@@ -40,9 +40,9 @@ for f in $INPUT_LIST; do
         PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
         git clone $line $PATH; \
       done < "$INPUT";
-    else
-      echo "FILE: ${INPUT} NOT EXIST!"
-    fi;
+    #else
+    #  echo "FILE: ${INPUT} NOT EXIST!"
+    #fi;
 
      #mv data/in/${FILENAME}.txt data/out/${FILENAME}.txt;
   fi;
