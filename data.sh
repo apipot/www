@@ -11,7 +11,10 @@ ENV="static"
 # create folder for groups and repositories by file list in data folder
 INPUT_LIST="data/in/*.txt";
 for f in $INPUT_LIST; do
-  FILENAME="basename ${f%%.*}";
+  FILE=${f%%.*};
+  echo $FILE;
+
+  FILENAME="$(basename ${f%%.*})";
   echo $FILENAME;
 
   OUTPUT="data/out/${FILENAME}.txt";
