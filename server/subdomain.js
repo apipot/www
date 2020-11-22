@@ -14,7 +14,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
                 if (!file) return done(null, results);
 
                 // FILENAME = .git
-                if (file.indexOf(FILENAME) !== -1) return done(null, results);
+                // if (file.indexOf(FILENAME) !== -1) return done(null, results);
 
                 file = path.resolve(dir, file);
 
@@ -22,6 +22,9 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
                 // if (path.extname(file).toLowerCase() === EXTENSION) return done(null, results);
 
                 fs.stat(file, function (err, stat) {
+                    // FILENAME = .git
+                    if (file.indexOf(FILENAME) !== -1) next();
+
                     if (stat && stat.isDirectory()) {
                         walk(file, function (err, res) {
                             results = results.concat(res);
