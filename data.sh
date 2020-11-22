@@ -25,7 +25,7 @@ for INPUT in $INPUT_LIST; do
   echo $OUTPUT;
 
   if [ ! -f "$OUTPUT" ]; then
-     echo ":: processing: ${FILENAME}";
+     echo ":: processing: ${FILENAME}"; \
      #cat `data/in/${FILENAME}.txt` | while read LINE; do echo "--${LINE}--"; done
      #same loop over files, but using a pipe (reading from standard input), and a while-loop
      #ls `data/in/${FILENAME}.txt` | while read LINE; do echo "--${LINE}--"; done;
