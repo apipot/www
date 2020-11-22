@@ -53,7 +53,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
 
     // user/project/path
     app.get('/_sub/:group/:project/*', function (req, res) {
-        public_src = process.env.HOME + "/" + "repo/static/" + req.params.group + "/" + req.params.project;
+        public_src = process.env.HOME + "/" + "www/" + "repo/static/" + req.params.group + "/" + req.params.project;
         // app.use(express.static(public_src));
         res.setHeader('Content-Type', 'application/json');
 
@@ -63,7 +63,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
         //     path: public_src,
         //     files: process.env.HOME,
         // }))
-        walk(process.env.HOME, function (err, results) {
+        walk(public_src, function (err, results) {
             if (err) throw err;
             // console.log(results);
             res.end(JSON.stringify({
