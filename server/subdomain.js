@@ -33,7 +33,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
                             next();
                         });
                     } else {
-                        if (file.indexOf(FILENAME) !== -1) next();
+                        if (file.indexOf(FILENAME) === -1) next();
 
                         results.push(file_name);
                         // results.push(file);
