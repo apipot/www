@@ -12,9 +12,13 @@
     
     sh install.sh
     
+    sh ssl.sh
+    
     sh status.sh
     
     sh start.sh
+    
+    
 
 ## Data processing
 Data from folder: "data/in" are used to generate the content in folder: "repo/"     
@@ -61,3 +65,11 @@ https://www.npmjs.com/package/wildcard-subdomains
 
 ## Node + Express + LetsEncrypt : Generate a free SSL certificate and run an HTTPS server in 5 minutes or less 
 https://itnext.io/node-express-letsencrypt-generate-a-free-ssl-certificate-and-run-an-https-server-in-5-minutes-a730fbe528ca
+
+# you can create one certificate with a lot of domain names.
+But *.*.xyz isn’t possible.
+That’s not a Letsencrypt limit. That’s a general DNS limit.
+A * is only allowed as first label.
+
+Stworzyć listę subdomen i dodawać je do tworzenia certyfikatów
+
