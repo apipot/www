@@ -11,8 +11,9 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
             var i = 0;
             (function next() {
                 var file = list[i++];
-                var file_name = list[i++];
                 if (!file) return done(null, results);
+
+                var file_name = file;
 
                 // FILENAME = .git
                 // if (file.indexOf(FILENAME) !== -1) return done(null, results);
