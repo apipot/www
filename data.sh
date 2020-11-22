@@ -7,31 +7,32 @@ ENV="env"
 ls data/in/
 # loop
 # create folder for groups and repositories by file list in data folder
-for f in data/in/*.txt; do
-  SAMPLE=`basename ${f%%.*}`;
-  OUTPUT="data/out/${SAMPLE}.txt";
-  #echo $SAMPLE;
+INPUT_LIST="data/in/*.txt";
+for f in $INPUT_LIST; do
+  FILENAME=`basename ${f%%.*}`;
+  OUTPUT="data/out/${FILENAME}.txt";
+  echo $FILENAME;
   if [ ! -f $$OUTPUT ]; then
-     echo ":: processing: ${SAMPLE}";
-     #cat `data/in/${SAMPLE}.txt` | while read LINE; do echo "--${LINE}--"; done
+     echo ":: processing: ${FILENAME}";
+     #cat `data/in/${FILENAME}.txt` | while read LINE; do echo "--${LINE}--"; done
      #same loop over files, but using a pipe (reading from standard input), and a while-loop
-     #ls `data/in/${SAMPLE}.txt` | while read LINE; do echo "--${LINE}--"; done;
+     #ls `data/in/${FILENAME}.txt` | while read LINE; do echo "--${LINE}--"; done;
     # Set the filename with path
-    INPUT="data/in/${SAMPLE}.txt";
+    INPUT="data/in/${FILENAME}.txt";
     # check if is existing
-    if [ -f $$INPUT ]; then
+    if [ -f $INPUT ]; then
       while IFS= read -r line || [[ -n "$line" ]]; do \
         #echo "-- $line --";
         # Read the filename without extension by using ‘basname’ and `sed` command
         FILE="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
-        PATH="${REPO}/${ENV}/${SAMPLE}/${FILE}"; \
+        PATH="${REPO}/${ENV}/${FILENAME}/${FILE}"; \
         git clone $line $REPO; \
       done < "$INPUT";
     else
       echo "FILE: ${INPUT} NOT EXIST!"
     fi;
 
-     #mv data/in/${SAMPLE}.txt data/out/${SAMPLE}.txt;
+     #mv data/in/${FILENAME}.txt data/out/${FILENAME}.txt;
   fi;
 done;
 
