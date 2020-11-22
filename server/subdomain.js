@@ -21,7 +21,8 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
     // list.view.apipot.com/README.md
     // http://list.view.apipot.com/README.md
     // ls repo/static/view/list
-    app.use('/_sub/view/list/*', express.static(path.join(__dirname, 'repo/static/view/list')))
+    // app.use('/_sub/view/list/*', express.static(path.join(__dirname, 'repo/static/view/list')))
+    app.use('/_sub/view/list', express.static('repo/static/view/list'))
 
     // user/project/path
     app.get('/_sub/:group/:project/*', function (req, res) {
