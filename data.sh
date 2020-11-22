@@ -10,7 +10,7 @@ ENV="static"
 # loop
 # create folder for groups and repositories by file list in data folder
 INPUT_LIST="data/in/*.txt";
-for f in ${INPUT_LIST}; do
+for f in data/in/*.txt; do
   FILENAME=`basename ${f%%.*}`;
   OUTPUT="data/out/${FILENAME}.txt";
   echo $FILENAME;
