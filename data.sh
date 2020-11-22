@@ -1,5 +1,8 @@
 #!/bin/bash
 echo "I am preparing some example data for tests"
+#config
+REPO="repo"
+ENV="env"
 # loop
 # create folder for groups and repositories by file list in data folder
 for f in data/in/*.txt; do
@@ -17,14 +20,13 @@ for f in data/in/*.txt; do
       #echo "-- $line --";
       # Read the filename without extension by using ‘basname’ and `sed` command
       FILE="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
-      echo "group/${SAMPLE}/${FILE}"; \
-      git clone $line "group/${SAMPLE}/${FILE}"; \
+      PATH="${REPO}/${ENV}/${SAMPLE}/${FILE}"; \
+      git clone $line PATH; \
     done < "$INPUT";
 
      #mv data/in/${SAMPLE}.txt data/out/${SAMPLE}.txt;
   fi;
 done;
-
 
 # file line reader:
 # https://stackoverflow.com/questions/10929453/read-a-file-line-by-line-assigning-the-value-to-a-variable
