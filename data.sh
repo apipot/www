@@ -11,7 +11,7 @@ for f in data/in/*.txt; do
   SAMPLE=`basename ${f%%.*}`;
   OUTPUT="data/out/${SAMPLE}.txt";
   #echo $SAMPLE;
-  if [ ! -f OUTPUT ]; then
+  if [ ! -f $$OUTPUT ]; then
      echo ":: processing: ${SAMPLE}";
      #cat `data/in/${SAMPLE}.txt` | while read LINE; do echo "--${LINE}--"; done
      #same loop over files, but using a pipe (reading from standard input), and a while-loop
@@ -19,7 +19,7 @@ for f in data/in/*.txt; do
     # Set the filename with path
     INPUT="data/in/${SAMPLE}.txt";
     # check if is existing
-    if [ -f INPUT ]; then \
+    if [ -f $$INPUT ]; then
       while IFS= read -r line || [[ -n "$line" ]]; do \
         #echo "-- $line --";
         # Read the filename without extension by using ‘basname’ and `sed` command
@@ -27,6 +27,9 @@ for f in data/in/*.txt; do
         PATH="${REPO}/${ENV}/${SAMPLE}/${FILE}"; \
         git clone $line $REPO; \
       done < "$INPUT";
+    else
+      echo "FILE: ${INPUT} NOT EXIST!"
+    fi;
 
      #mv data/in/${SAMPLE}.txt data/out/${SAMPLE}.txt;
   fi;
