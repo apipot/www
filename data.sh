@@ -6,11 +6,11 @@ ENV="static"
 #ENV="php"
 #ENV="nodejs"
 # show files /in
-ls data/in/
+#ls data/in/
 # loop
 # create folder for groups and repositories by file list in data folder
 INPUT_LIST="data/in/*.txt";
-for f in $INPUT_LIST; do
+for f in ${INPUT_LIST}; do
   FILENAME=`basename ${f%%.*}`;
   OUTPUT="data/out/${FILENAME}.txt";
   echo $FILENAME;
