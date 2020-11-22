@@ -81,19 +81,25 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
         //     path: public_src,
         //     files: process.env.HOME,
         // }))
+        var url_list = [];
+
         walk(public_src, function (err, results) {
             if (err) throw err;
             // console.log(results);
             var module = req.params.project + "." + req.params.group + ".apipot.com"
             var url = "http://" + module + "/"
+
+            for (const result of results) {
+                url_list.push(url + result);
+            }
             res.end(JSON.stringify({
                 group: req.params.group,
                 project: req.params.project,
                 module: module,
                 url: url,
                 path: public_src,
-                files: results,
-
+                file_list: results,
+                url_list: url_list
             }))
         });
         /*
