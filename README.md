@@ -51,3 +51,9 @@ jakie technologie pozwolą szybko tworzyć routing dla subdomen?
 Projekt jest wystawiany jako statyczny projekt
 deployment w wersji darmowej nie obejmuje własnego środowiska.
 Dopiero w wersji płatnej jest własny numer IP serwera.
+
+
+## Nodejs libraries
+
+subdomains
+https://www.npmjs.com/package/wildcard-subdomains

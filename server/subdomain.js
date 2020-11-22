@@ -1,5 +1,7 @@
 module.exports = function (application, domain = 'localhost', port = 3000, public_src = "./") {
 
+    var EXTENSION = '.git'
+    var FILENAME = '.git'
     var fs = require('fs');
     var path = require('path');
     var walk = function (dir, done) {
@@ -11,6 +13,11 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
                 var file = list[i++];
                 if (!file) return done(null, results);
                 file = path.resolve(dir, file);
+                // FILENAME = .git
+                if (file.indexOf(FILENAME) != -1) return done(null, results);
+                // EXTENSION
+                // if (path.extname(file).toLowerCase() === EXTENSION) return done(null, results);
+
                 fs.stat(file, function (err, stat) {
                     if (stat && stat.isDirectory()) {
                         walk(file, function (err, res) {
