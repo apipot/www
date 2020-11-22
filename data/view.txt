@@ -1,0 +1,8 @@
+https://github.com/apipot-view/list.git
+https://github.com/apipot-view/details.git
+https://github.com/apipot-view/icons.git
+https://github.com/apipot-view/grid.git
+https://github.com/apipot-view/tree.git
+https://github.com/apipot-view/slides.git
+https://github.com/apipot-view/light.git
+https://github.com/apipot-view/dark.git
