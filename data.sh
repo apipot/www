@@ -36,8 +36,9 @@ for f in $INPUT_LIST; do
         #echo "-- $line --";
         # Read the filename without extension by using ‘basname’ and `sed` command
         PROJECT="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
+        echo $PROJECT; \
         PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
-        git clone $line $REPO; \
+        git clone $line $PATH; \
       done < "$INPUT";
     else
       echo "FILE: ${INPUT} NOT EXIST!"
