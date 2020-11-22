@@ -33,6 +33,8 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
                             next();
                         });
                     } else {
+                        if (file.indexOf(FILENAME) !== -1) next();
+
                         results.push(file_name);
                         // results.push(file);
                         next();
@@ -82,10 +84,12 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
         walk(public_src, function (err, results) {
             if (err) throw err;
             // console.log(results);
-            var url = "http://" + req.params.project + "." + req.params.group + ".apipot.com/"
+            var module = req.params.project + "." + req.params.group + ".apipot.com"
+            var url = "http://" + module + "/"
             res.end(JSON.stringify({
                 group: req.params.group,
                 project: req.params.project,
+                module: module,
                 url: url,
                 path: public_src,
                 files: results,
