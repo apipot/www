@@ -18,12 +18,14 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
         res.send('Visit <a href="http://foo.apipot.com:80">http://foo.apipot.com:80</a> (points back to localhost)')
     })
 */
+    // list.view.apipot.com/README.md
+
+    app.use('/_sub/view/list/', express.static(path.join(__dirname, 'repo/static/view/list')))
 
     // user/project/path
     app.get('/_sub/:group/:project/*', function (req, res) {
-        public_src = req.params.group + "/" + req.params.project;
-        app.use(express.static(public_src));
-        /*
+        //public_src = req.params.group + "/" + req.params.project;
+        // app.use(express.static(public_src));
         res.end(
             'group: ' +
             req.params.group +
@@ -37,7 +39,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
             'Query string: ' +
             JSON.stringify(req.query)
         )
-        */
+
     })
 
     // Generous matching
