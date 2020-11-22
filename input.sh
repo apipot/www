@@ -6,6 +6,6 @@ for f in $INPUT_LIST; do
   FILE=${f%%.*};
   echo $FILE;
 
-  FILENAME="$(basename ${f%%.*})";
+  FILENAME="$(basename "$FILE")";
   echo $FILENAME;
 done;
