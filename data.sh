@@ -12,6 +12,8 @@ ENV="static"
 INPUT_LIST="data/in/*.txt";
 for INPUT in $INPUT_LIST; do
 
+  echo $INPUT;
+
   FILE=${INPUT%%.*};
   echo $FILE;
 
@@ -35,9 +37,9 @@ for INPUT in $INPUT_LIST; do
           # Read the filename without extension by using ‘basname’ and `sed` command
           PROJECT="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
           echo $PROJECT; \
-          PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
-          echo $PATH; \
-          #mkdir -p "${REPO}/${ENV}/${FILENAME}"; \
+          mkdir -p "${REPO}/${ENV}/${FILENAME}"; \
+          #PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
+          #echo $PATH; \
           #git clone $line $PATH; \
         done < "$INPUT";
 
