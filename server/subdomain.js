@@ -1,5 +1,32 @@
 module.exports = function (application, domain = 'localhost', port = 3000, public_src = "./") {
 
+    var fs = require('fs');
+    var path = require('path');
+    var walk = function(dir, done) {
+        var results = [];
+        fs.readdir(dir, function(err, list) {
+            if (err) return done(err);
+            var i = 0;
+            (function next() {
+                var file = list[i++];
+                if (!file) return done(null, results);
+                file = path.resolve(dir, file);
+                fs.stat(file, function(err, stat) {
+                    if (stat && stat.isDirectory()) {
+                        walk(file, function(err, res) {
+                            results = results.concat(res);
+                            next();
+                        });
+                    } else {
+                        results.push(file);
+                        next();
+                    }
+                });
+            })();
+        });
+    };
+
+
     // Library
     const express = require('express')
     const wildcardSubdomains = require('wildcard-subdomains')
@@ -29,11 +56,16 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
         //public_src = req.params.group + "/" + req.params.project;
         // app.use(express.static(public_src));
         res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify({
-            group: req.params.group,
-            project: req.params.project,
+        walk(process.env.HOME, function(err, results) {
+            if (err) throw err;
+            // console.log(results);
+            res.end(JSON.stringify({
+                group: req.params.group,
+                project: req.params.project,
+                files: results,
+            }))
+        });
 
-        }))
         /*
         res.end(
             'group: ' +
