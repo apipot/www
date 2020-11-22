@@ -32,8 +32,8 @@ for f in $INPUT_LIST; do
       while IFS= read -r line || [[ -n "$line" ]]; do \
         #echo "-- $line --";
         # Read the filename without extension by using ‘basname’ and `sed` command
-        FILE="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
-        PATH="${REPO}/${ENV}/${FILENAME}/${FILE}"; \
+        PROJECT="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
+        PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
         git clone $line $REPO; \
       done < "$INPUT";
     else
