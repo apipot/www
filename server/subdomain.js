@@ -22,10 +22,10 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
                 // if (path.extname(file).toLowerCase() === EXTENSION) return done(null, results);
 
                 fs.stat(file, function (err, stat) {
-                    // FILENAME = .git
-                    if (file.indexOf(FILENAME) !== -1) next();
-
                     if (stat && stat.isDirectory()) {
+                        // FILENAME = .git
+                        if (file.indexOf(FILENAME) !== -1) next();
+
                         walk(file, function (err, res) {
                             results = results.concat(res);
                             next();
