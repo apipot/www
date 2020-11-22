@@ -12,9 +12,11 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
             (function next() {
                 var file = list[i++];
                 if (!file) return done(null, results);
-                file = path.resolve(dir, file);
                 // FILENAME = .git
-                if (file.indexOf(FILENAME) != -1) return done(null, results);
+                if (file.indexOf(FILENAME) > -1) return done(null, results);
+
+                file = path.resolve(dir, file);
+
                 // EXTENSION
                 // if (path.extname(file).toLowerCase() === EXTENSION) return done(null, results);
 
