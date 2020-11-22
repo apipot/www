@@ -1,6 +1,7 @@
 .idea
 .idea/
 repo/
+group/
 data/out/
 data/tmp/
 # Logs

@@ -1,2 +1,2 @@
-https://github.com/apipot-input/checkbox.git
-https://github.com/apipot-input/radio.git
+https://github.com/apipot-auth/user.git
+https://github.com/apipot-auth/admin.git
