@@ -32,7 +32,8 @@ for INPUT in $INPUT_LIST; do
 
     # check if is existing
     #if [ -f "$INPUT" ]; then
-        while IFS= read -r line || [[ -n "$line" ]]; do \
+        #while IFS= read -r line || [[ -n "$line" ]]; do \
+        while IFS= read -r line; do \
           #echo "-- $line --";
           # Read the filename without extension by using ‘basname’ and `sed` command
           PROJECT="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
@@ -41,7 +42,7 @@ for INPUT in $INPUT_LIST; do
           #PATH="${REPO}/${ENV}/${FILENAME}/${PROJECT}"; \
           #echo $PATH; \
           #git clone $line $PATH; \
-        done < "$INPUT";
+        done < "$INPUT"; \
 
     #else
     #  echo "FILE: ${INPUT} NOT EXIST!"
