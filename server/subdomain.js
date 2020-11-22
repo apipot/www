@@ -28,6 +28,13 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
     app.get('/_sub/:group/:project/*', function (req, res) {
         //public_src = req.params.group + "/" + req.params.project;
         // app.use(express.static(public_src));
+
+        res.end({
+            group: req.params.group,
+            project: req.params.project,
+
+        })
+        /*
         res.end(
             'group: ' +
             req.params.group +
@@ -41,6 +48,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
             'Query string: ' +
             JSON.stringify(req.query)
         )
+//         */
     })
 
     // Generous matching
@@ -60,6 +68,29 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
         )
     })
 
+    app.get('/admin/username/:username', function (req, res) {
+
+    })
+
+    app.get('/admin/group/:group', function (req, res) {
+
+    })
+
+    app.get('/admin/group/:group/project/:project', function (req, res) {
+
+    })
+
+    app.put('/admin/group/:group/project/:project', function (req, res) {
+
+    })
+
+    app.post('/admin/group/:group/project/:project', function (req, res) {
+
+    })
+
+    app.delete('/admin/group/:group/project/:project', function (req, res) {
+
+    })
 
     // Start App
     app.listen(port, () => console.log(application + ' is listening on: ' + url));
