@@ -1,8 +1,10 @@
 #!/bin/bash
-echo "I am preparing some example data for tests"
+echo "I am loading example files"
 #config
 REPO="repo"
 ENV="env"
+# show files /in
+ls data/in/
 # loop
 # create folder for groups and repositories by file list in data folder
 for f in data/in/*.txt; do
@@ -21,7 +23,7 @@ for f in data/in/*.txt; do
       # Read the filename without extension by using ‘basname’ and `sed` command
       FILE="$(basename "$line" | sed 's/\(.*\)\..*/\1/')"; \
       PATH="${REPO}/${ENV}/${SAMPLE}/${FILE}"; \
-      git clone $line PATH; \
+      git clone $line $REPO; \
     done < "$INPUT";
 
      #mv data/in/${SAMPLE}.txt data/out/${SAMPLE}.txt;
