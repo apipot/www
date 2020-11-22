@@ -28,12 +28,12 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
     app.get('/_sub/:group/:project/*', function (req, res) {
         //public_src = req.params.group + "/" + req.params.project;
         // app.use(express.static(public_src));
-
-        res.end({
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({
             group: req.params.group,
             project: req.params.project,
 
-        })
+        }))
         /*
         res.end(
             'group: ' +
@@ -49,7 +49,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
             JSON.stringify(req.query)
         )
 //         */
-    })
+    });
 
     // Generous matching
     app.get('/_sub/:firstSubdomain/*', function (req, res) {
