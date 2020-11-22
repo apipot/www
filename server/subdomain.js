@@ -33,9 +33,9 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
                             next();
                         });
                     } else {
-                        if (file_name.indexOf(FILENAME) === -1) next();
-
-                        results.push(file_name);
+                        if (file_name.indexOf(FILENAME) === -1) {
+                            results.push(file_name);
+                        }
                         // results.push(file);
                         next();
                     }
