@@ -2,7 +2,9 @@
 echo "I am loading example files"
 #config
 REPO="repo"
-ENV="env"
+ENV="static"
+#ENV="php"
+#ENV="nodejs"
 # show files /in
 ls data/in/
 # loop
