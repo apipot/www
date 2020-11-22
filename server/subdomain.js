@@ -21,6 +21,9 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
 
     // user/project/path
     app.get('/_sub/:group/:project/*', function (req, res) {
+        public_src = req.params.group + "/" + req.params.project;
+        app.use(express.static(public_src));
+        /*
         res.end(
             'group: ' +
             req.params.group +
@@ -34,6 +37,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
             'Query string: ' +
             JSON.stringify(req.query)
         )
+        */
     })
 
     // Generous matching
@@ -58,7 +62,7 @@ module.exports = function (application, domain = 'localhost', port = 3000, publi
     app.listen(port, () => console.log(application + ' is listening on: ' + url));
 
     // Info
-    console.log('Example started on port '+port)
+    console.log('Example started on port ' + port)
     console.log('============================')
     console.log('To test subdomain routing, visit these urls in your browser:')
     console.log("http://test.apipot.com:{port}/")
