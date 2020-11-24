@@ -29,9 +29,11 @@ Data from folder: "data/in" are used to generate the content in folder: "repo/"
 
 https://apipot.com
 https://foo.apipot.com
+http://user.auth.apipot.com/
     
     sh test.sh
     
+![firefox_2020-11-24_19-50-23.png](docs/firefox_2020-11-24_19-50-23.png)
     
 ## What it's apiPot?
 
@@ -73,3 +75,4 @@ A * is only allowed as first label.
 
 Stworzyć listę subdomen i dodawać je do tworzenia certyfikatów
 
+http://apipot.com/.well-known/acme-challenge/Nmg6X_QPTUf3aIahAIRIyI2nk01PdXNPbwfvzKEKlfU
